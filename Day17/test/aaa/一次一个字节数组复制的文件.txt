@@ -1,0 +1,24 @@
+package com.yyds.c_fileinputstream;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class 默写代码 {
+    public static void main(String[] args) throws IOException {
+        //创建对象
+        FileInputStream fis = new FileInputStream("G:\\Day14资料\\录屏\\03_数据结构之红黑树结构.mp4");
+        FileOutputStream fos = new FileOutputStream("Day_17\\test\\红黑树.avi");
+        //循环读写
+        //定义一个字节数组
+        byte[] bys = new byte[1024];
+        //定义len来记录读到的字节数
+        int len;
+        while ((len = fis.read(bys)) != -1){
+            fos.write(bys,0,len);
+        }
+        //关闭流
+        fis.close();
+        fos.close();
+    }
+}
